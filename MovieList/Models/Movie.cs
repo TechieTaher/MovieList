@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace MovieList.Models
@@ -13,13 +14,17 @@ namespace MovieList.Models
         public float Ratings { get; set; }
         public int IndustryId { get; set; }
         public DateTime ReleaseDate { get; set; }
-        public virtual Industry Industry { get; set; }        
-        public virtual ICollection<Artist> Artists { get; set; }
-        public virtual ICollection<Category> Categories{ get; set; }
+        [ForeignKey(nameof(IndustryId))]
+        [InverseProperty(nameof(Models.Industry.Movies))]
+        public virtual Industry Industry { get; set; }
+        [InverseProperty("Movie")]
+        public virtual ICollection<MovieArtist> MovieArtists{ get; set; }
+        [InverseProperty("Movie")]
+        public virtual ICollection<MovieCategory>MovieCategories { get; set; }
         public Movie()
         {
-            Artists = new HashSet<Artist>();
-            Categories = new HashSet<Category>();
+            MovieArtists = new HashSet<MovieArtist>();
+            MovieCategories = new HashSet<MovieCategory>();
         }
     }
 }

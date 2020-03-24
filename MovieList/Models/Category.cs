@@ -9,10 +9,10 @@ namespace MovieList.Models
         [System.ComponentModel.DataAnnotations.Key]
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }
-        public virtual ICollection<Movie> Movies { get; set; }
+        public virtual ICollection<MovieCategory> MovieCategories { get; set; }
         public Category()
         {
-            Movies = new HashSet<Movie>();
+            MovieCategories= new HashSet<MovieCategory>();
         }
     }
 }

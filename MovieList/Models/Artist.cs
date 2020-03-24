@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace MovieList.Models
@@ -11,10 +12,11 @@ namespace MovieList.Models
         public string ArtistName { get; set; }
         public DateTime BirthDate { get; set; }
         public string Country { get; set; }
-        public virtual ICollection<Movie>  Movies  { get; set; }
+        [InverseProperty("Artist")]
+        public virtual ICollection<MovieArtist>  MovieArtists{ get; set; }
         public Artist()
         {
-            Movies = new HashSet<Movie>();
+            MovieArtists = new HashSet<MovieArtist>();
         }
     }
 }
