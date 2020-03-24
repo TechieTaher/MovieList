@@ -7,16 +7,16 @@ using System.Text;
 
 namespace MovieList.Domain
 {
-    public class ArtistDomain : BaseContext
+    public class CategoryDomain : BaseContext
     {
-        public void AddArtist(Artist artist)
+        public void AddCategory(Category category)
         {
-            Artists.Add(artist);
+            Categories.Add(category);
             SaveChanges();
         }
-        public List<Artist> GetArtists()
+        public List<Category> GetCategories()
         {
-            return Artists.ToList();
+            return Categories.ToList();
         }
     }
 }

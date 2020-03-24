@@ -11,7 +11,7 @@ namespace MovieList.Models
         [System.ComponentModel.DataAnnotations.Key]
         public int MovieId { get; set; }
         public string MovieName { get; set; }
-        public float Ratings { get; set; }
+        public decimal Rating { get; set; }
         public int IndustryId { get; set; }
         public DateTime ReleaseDate { get; set; }
         [ForeignKey(nameof(IndustryId))]

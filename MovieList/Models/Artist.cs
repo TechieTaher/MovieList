@@ -18,5 +18,18 @@ namespace MovieList.Models
         {
             MovieArtists = new HashSet<MovieArtist>();
         }
+        
     }
+    class ArtistComparer : IEqualityComparer<Artist>
+    {
+        public bool Equals(Artist x, Artist y)
+        {
+            return x.ArtistId == y.ArtistId;
+        }
+        public int GetHashCode(Artist t)
+        {
+            return t.ArtistId.GetHashCode();
+        }
+    }
+    
 }

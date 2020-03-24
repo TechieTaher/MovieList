@@ -15,4 +15,16 @@ namespace MovieList.Models
             MovieCategories= new HashSet<MovieCategory>();
         }
     }
+    public class CategoryComparer : IEqualityComparer<Category>
+    {
+        public bool Equals(Category x, Category y)
+        {
+            return x.CategoryId == y.CategoryId;
+        }
+
+        public int GetHashCode(Category obj)
+        {
+            return obj.CategoryId.GetHashCode();
+        }
+    }
 }
